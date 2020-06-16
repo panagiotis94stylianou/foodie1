@@ -1,14 +1,18 @@
+{% load static %}
 <html>
     <head>
         <title>Foodies ohne Zeit</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div>
+        <div class="page-header"></div>
             <h1><a href="/">Foodies ohne Zeit</a></h1>
         </div>
-        <div>
+        {% for post in posts %}
+        <div class="post">
             <h2><a href="">1. Rezept: Glutenfreies Back-wann-du-Lust-hast-Brot</a></h2>
             <p>250 g    Mehl, dunkel, glutenfrei</p>
             <p>150 g    Mehl, hell, glutenfrei</p>
@@ -33,14 +37,14 @@
             <p></p>
             <p>Tipp: Das ist ein flexibles Rezept, mögliche Variationen mit Brotgewürz, Körnern, Saaten, Karotten und Kräutern. </p>
             <p></p>
-            <p>published: 15.06.2020, 10:30</p>
+            <p>published: {{ post.published_date }}</p>
         </div>
 
-        <div>
-
+        <div class="post"></divclass>
             <h2><a href="">Hallo Zusammen!</a></h2>
             <p>Hallo! Ich heiße Julian, bin 39 Jahre alt, arbeite als Projektmanager, und bin verheiratet mit 2 Kindern. Als Foodie ohne Zeit, habe ich diesen Blog erstellt, um Beiträge zum Thema Ernärung zu erstellen, und um meinem Interesse an gutem Essen Ausdruck zu verleihen. Hier ist so zu sagen eine Sammlung von Rezepten und Videos zum Theam backen für sich und andere.</p>
-            <p>published: 15.06.2020, 10:00</p>
+            <p>published: {{ post.published_date }}</p>
         </div>
+        {% endfor %}
     </body>
 </html>
